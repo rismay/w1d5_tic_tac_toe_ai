@@ -1,9 +1,9 @@
 class TreeNode
   attr_accessor :parent, :children, :value
 
-  def initialize(value = nil, children = [])
+  def initialize(value = nil, childs = [])
     self.value = value
-    self.children = children
+    self.children = childs
     self.parent = nil
   end
 
@@ -16,11 +16,11 @@ class TreeNode
     raise "Child node is nil." if child_node.nil?
     child_node.detach
     child_node.parent = self
-    p self.children.push(child_node)
+    self.children.push(child_node)
   end
 
   def detach
-    self.parent.remove_child(self)
+    self.parent.remove_child(self) unless self.parent.nil?
   end
 
   def dfs(val)
@@ -41,6 +41,7 @@ class TreeNode
 
     until queue.empty?
       temp = queue.shift
+      p "BFS: "+ temp.to_s
       if temp.value == value
         return temp
       else
@@ -49,6 +50,10 @@ class TreeNode
     end
   end
 
+  def to_s
+    p "IsA: " + self.children.class.to_s
+    "v: #{value} c: #{children.count}"
+  end
 end
 
 #
