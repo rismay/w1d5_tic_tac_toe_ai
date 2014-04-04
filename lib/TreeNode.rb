@@ -44,6 +44,7 @@ class TreeNode
   end
 
 end
+
 #
 # t = TreeNode.new("Hello")
 # c = TreeNode.new("World")
@@ -52,11 +53,11 @@ end
 # #p t.remove_child(c)
 # p "Search for world: " + t.dfs("world").to_s
 # p "Search for Hello: " + t.dfs("Hello").to_s
-
-a = TreeNode.new("Hello")
-b = TreeNode.new("World")
-p "Search for World: " + a.bfs("World").to_s
-a.add_child(b)
-#p t.remove_child(c)
-p "Search for world: " + a.bfs("world").to_s
-p "Search for Hello: " + a.bfs("Hello").to_s
+#
+# a = TreeNode.new("Hello")
+# b = TreeNode.new("World")
+# p "Search for World: " + a.bfs("World").to_s
+# a.add_child(b)
+# #p t.remove_child(c)
+# p "Search for world: " + a.bfs("world").to_s
+# p "Search for Hello: " + a.bfs("Hello").to_s
