@@ -13,12 +13,17 @@ class TreeNode
   end
 
   def add_child(child_node)
+    raise "Child node is nil." if child_node.nil?
+    child_node.detach
     child_node.parent = self
-    p self.children.push(child_node) if !child_node.nil?
+    p self.children.push(child_node)
+  end
+
+  def detach
+    self.parent.remove_child(self)
   end
 
   def dfs(val)
-
     return nil if (val == nil)
     return self if (val == self.value)
 
@@ -26,6 +31,8 @@ class TreeNode
       d = child.dfs(value)
       return d if d
     end
+
+    nil
   end
 
   def bfs(value)
@@ -40,7 +47,6 @@ class TreeNode
         temp.children.each { |child| queue.push(child) }
       end
     end
-
   end
 
 end
